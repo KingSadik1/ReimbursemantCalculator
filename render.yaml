@@ -1,6 +1,7 @@
 services:
-  - type: web
+  - type: static
     name: reimbursement-calculator
-    staticPublishPath: /
+    env: static
+    staticPublishPath: .  # This must be a relative path; the current directory is denoted by "."
     branch: main
-    buildCommand: ""  # No build command needed for static site
+
