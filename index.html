@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reimbursement Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDuASq7JMty9qifQg4rHj64RDZmk8v9gjk&libraries=places"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Reimbursement Calculator</h1>
+        
+        <div class="form-row">
+            <label for="Name">Name:</label>
+            <select id="Name" name="Name" onchange="populateCode()" required>
+                <option value="" disabled selected>Select Member</option>
+                <option value="Bradford, K.">Bradford, K.</option>
+                <option value="Cassella, K.">Cassella, K.</option>
+                <option value="Keller, Y.">Keller, Y.</option>
+                <option value="Hart, A.">Hart, A.</option>
+                <option value="Magee, C.">Magee, C.</option>
+                <option value="Scherr, A.">Scherr, A.</option>
+                <option value="N/A">N/A</option>
+            </select>
+        </div>
+        
+        <div class="form-row">
+            <label for="govCode">Government Code:</label>
+            <input type="text" id="govCode" name="govCode" readonly>
+        </div>
+        
+            
+            <!-- Origin -->
+            <div class="form-row">
+                <label for="origin">Origin:</label>
+                <select id="origin" name="origin" onchange="toggleCustomOrigin()" required>
+                    <option value="" disabled selected>Select Origin</option>
+                    <!-- Locations from the mileage guide -->
+                    <option value="Westbrook Dormitory">Westbrook Dormitory</option>
+                    <option value="Madison Office">Madison Office</option>
+                    <option value="Transition Apts">Transition Apts</option>
+                    <option value="Clinton House">Clinton House</option>
+                    <option value="Canterbury Commons">Canterbury Commons</option>
+                    <option value="Seaside House">Seaside House</option>
+                    <option value="Lafayette Green">Lafayette Green</option>
+                    <option value="Founders Village">Founders Village</option>
+                    <option value="49 & 51 Magna Lane">49 & 51 Magna Lane</option>
+                    <option value="28 & 31 Maple Ridge">28 & 31 Maple Ridge</option>
+                    <option value="Maplewood">Maplewood</option>
+                    <option value="Settlers Landing">Settlers Landing</option>
+                    <option value="Custom">Custom</option>
+                </select>
+                <input type="text" id="customOrigin" name="customOrigin" class="custom-input" placeholder="Enter custom origin">
+            </div>
+            
+            <!-- Destination -->
+            <div class="form-row">
+                <label for="destination">Destination:</label>
+                <select id="destination" name="destination" onchange="toggleCustomDestination()" required>
+                    <option value="" disabled selected>Select Destination</option>
+                    <!-- Same list of locations -->
+                    <option value="Westbrook Dormitory">Westbrook Dormitory</option>
+                    <option value="Madison Office">Madison Office</option>
+                    <option value="Transition Apts">Transition Apts</option>
+                    <option value="Clinton House">Clinton House</option>
+                    <option value="Canterbury Commons">Canterbury Commons</option>
+                    <option value="Seaside House">Seaside House</option>
+                    <option value="Lafayette Green">Lafayette Green</option>
+                    <option value="Founders Village">Founders Village</option>
+                    <option value="49 & 51 Magna Lane">49 & 51 Magna Lane</option>
+                    <option value="28 & 31 Maple Ridge">28 & 31 Maple Ridge</option>
+                    <option value="Maplewood">Maplewood</option>
+                    <option value="Settlers Landing">Settlers Landing</option>
+                    <option value="Custom">Custom</option>
+                </select>
+                <input type="text" id="customDestination" name="customDestination" class="custom-input" placeholder="Enter custom destination">
+            </div>
+            
+            <!-- Submit Button -->
+            <button type="button" onclick="calculateAndExportToExcel()">Export to Excel</button>
+        </form>
+        
+        <!-- Display result -->
+        <div id="result"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
