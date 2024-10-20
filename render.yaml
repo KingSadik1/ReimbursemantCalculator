@@ -1,0 +1,6 @@
+services:
+  - type: web
+    name: reimbursement-calculator
+    staticPublishPath: /
+    branch: main
+    buildCommand: ""  # No build command needed for static site
