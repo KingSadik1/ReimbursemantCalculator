@@ -1,7 +1,10 @@
 services:
-  - type: static
+  - type: web
     name: reimbursement-calculator
-    env: static
-    staticPublishPath: .  # This must be a relative path; the current directory is denoted by "."
+    env: static  # It's still a static environment, but as a web service
     branch: main
+    buildCommand: ""  # No build command since it's a static site
+    startCommand: ""  # No start command needed for static files
+    staticPublishPath: .  # Specify the folder where your index.html file is located
+
 
